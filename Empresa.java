@@ -15,7 +15,7 @@ public class Empresa {
 		EmpleadoEmpresa empleadoAsalariado1 = new EmpleadoAsalariado("Diego", "600000", 0);
 		EmpleadoEmpresa empleadoAsalariado = new EmpleadoAsalariado("Juan", "750000", 200);
 		EmpleadoEmpresa empleadoPorHoras = new EmpleadoPorHoras("María", "0", 50, 16000);
-        EmpleadoEmpresa empleado3 = new EmpleadoAsalariado("J", "900",98);
+        EmpleadoEmpresa empleado3 = new EmpleadoAsalariado("Jose", "900000",98);
 
 		ArrayList<EmpleadoEmpresa> empleados = new ArrayList<>();
 		empleados.add(empleadoAsalariado1);
@@ -34,14 +34,7 @@ public class Empresa {
 			System.out.println("------------");
 		}
 		GestorEmpleados gestor = new GestorEmpleados("src/empleados.csv");
-
-		// Guardar empleados en el archivo CSV
-		gestor.guardarEmpleados(empleados);
-
-		// Cargar empleados desde el archivo CSV
 		ArrayList<EmpleadoEmpresa> empleadosCargados = gestor.cargarEmpleados();
-
-		// Mostrar los empleados cargados
 		if (empleadosCargados.isEmpty()) {
 			System.out.println("No se encontraron empleados en el archivo.");
 		} else {
@@ -50,6 +43,6 @@ public class Empresa {
 				System.out.println("Nombre: " + empleado.getNombre() + ", Tipo: " + empleado.getTipo() + ", Salario: " + empleado.calcularSalario());
 			}
 		}
+		gestor.guardarEmpleados(empleados);
 	}
-
 }
